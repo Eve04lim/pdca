@@ -1,0 +1,15 @@
+{
+  "hooks": {
+    "PostToolUse": [
+      {
+        "matcher": "Edit|Write",
+        "hooks": [
+          {
+            "type": "command",
+            "command": "./node_modules/.bin/tsc --noEmit 2>&1 | tail -n 30"
+          }
+        ]
+      }
+    ]
+  }
+}
