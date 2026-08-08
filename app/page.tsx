@@ -19,6 +19,9 @@ export default function TodayPage() {
   const inputRef = useRef<HTMLInputElement>(null);
 
   useEffect(() => {
+    // localStorage is unavailable during SSR; load after mount to keep
+    // the SSR/hydration output (empty state) consistent.
+    // eslint-disable-next-line react-hooks/set-state-in-effect
     setTasks(loadTasks());
   }, []);
 
